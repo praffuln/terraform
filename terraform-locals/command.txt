@@ -1,0 +1,7 @@
+terraform plan -var-file="stage.tfvars"
+
+terraform plan -var-file="production.tfvars"
+
+terraform plan -var="instance_type=t2.micro"
+
+terraform apply -var="instance_type=t2.micro"
