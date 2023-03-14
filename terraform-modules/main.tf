@@ -5,10 +5,10 @@ provider "aws" {
 }
 
 
-module "jhooq-webserver-1" {
-  source = ".//module-1"
+module "first-ec2-instance" {
+  source = ".//Module1"
 }
 
-module "jhooq-webserver-2" {
-  source = ".//module-2"
+module "second-ec2-instance" {
+  source = ".//Module2"
 }
