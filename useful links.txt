@@ -4,3 +4,4 @@ https://www.youtube.com/watch?v=AY8EsCRsQcU&list=PL7iMyoQPMtAOz187ezONf7pL8oGZRo
 
 ---- certification ------
 https://www.youtube.com/watch?v=V4waklkBC38
+https://developer.hashicorp.com/terraform/tutorials/certification-003/associate-study-003
