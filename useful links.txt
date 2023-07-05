@@ -9,6 +9,6 @@ https://www.youtube.com/watch?v=obBSeSgQ1fM
 
 -----dumps------------
 https://free-braindumps.com/hashicorp/free-ta-002-p-braindumps.html?p=1  --- 101
-https://medium.com/bb-tutorials-and-thoughts/250-practice-questions-for-terraform-associate-certification-7a3ccebe6a1a
+https://medium.com/bb-tutorials-and-thoughts/250-practice-questions-for-terraform-associate-certification-7a3ccebe6a1a       ---30
 https://www.itexams.com/exam/Terraform-Associate
 https://www.whizlabs.com/blog/terraform-certification-exam-questions/
