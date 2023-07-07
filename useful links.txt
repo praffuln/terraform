@@ -1,4 +1,4 @@
---- learning ---------
+1--- learning ---------
 https://www.youtube.com/watch?v=AY8EsCRsQcU&list=PL7iMyoQPMtAOz187ezONf7pL8oGZRobYl&index=2
 https://www.youtube.com/watch?v=vwn77cUarTs&list=PL8HowI-L-3_9bkocmR3JahQ4Y-Pbqs2Nt
 
@@ -9,6 +9,6 @@ https://www.youtube.com/watch?v=obBSeSgQ1fM
 
 -----dumps------------
 https://free-braindumps.com/hashicorp/free-ta-002-p-braindumps.html?p=1  --- 101
-https://medium.com/bb-tutorials-and-thoughts/250-practice-questions-for-terraform-associate-certification-7a3ccebe6a1a       ---30
+https://medium.com/bb-tutorials-and-thoughts/250-practice-questions-for-terraform-associate-certification-7a3ccebe6a1a       ---124
 https://www.itexams.com/exam/Terraform-Associate
 https://www.whizlabs.com/blog/terraform-certification-exam-questions/
