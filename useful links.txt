@@ -12,3 +12,12 @@ https://free-braindumps.com/hashicorp/free-ta-002-p-braindumps.html?p=1  --- 101
 https://medium.com/bb-tutorials-and-thoughts/250-practice-questions-for-terraform-associate-certification-7a3ccebe6a1a       ---124
 https://www.itexams.com/exam/Terraform-Associate
 https://www.whizlabs.com/blog/terraform-certification-exam-questions/
+
+
+https://k21academy.s3.us-west-2.amazonaws.com/Public/Terraform+IaC/Terraform+Exam+Questions+Guide/Terraform_Certification_Exam_Questions_FREE_Guide_ed2.pdf
+
+https://www.itexams.com/exam/Terraform-Associate          ----------- Question 50 -- lost access after 50
+https://www.certlibrary.com/exam/Terraform%20Associate  -- 130  -- lost access after 130
+https://free-braindumps.com/hashicorp/free-ta-002-p-braindumps.html?p=27
+https://www.pass4success.com/hashicorp/discussions
+
