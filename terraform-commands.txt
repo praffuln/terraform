@@ -1,0 +1,318 @@
+https://hashicorp-certifications.zendesk.com/hc/en-us/articles/360052230772
+
+ certifications@hashicorp.com
+You can also try contacting PSI's support teams at these numbers:
+PSI's Candidate Support: 1 (877) 714-5686
+PSI Technical Support (within US): 1 (844) 267-1017
+PSI Technical Support (outside US): 1 (617) 564-9052
+
+
+terraform init -backend-config=dev.hcl -reconfigure
+
+
+The module installer supports installation from a number of different source types.
+Local paths
+Terraform Registry
+GitHub
+Bitbucket
+Generic Git, Mercurial repositories
+HTTP URLs
+S3 buckets
+GCS buckets
+Modules in Package Sub-directories
+
+Option B, var.list[*].id, uses the splat operator [*] to iterate over all elements of the var.list list and then accesses the id attribute of each object. The result is a list of all the id values.
+Option D, [ for o in var.list : o.id ], uses a list comprehension to iterate over each object in the var.list list and create a new list that contains only the id attribute of each object.
+
+
+Terraform CLI defines the following OPTIONAL arguments for variable declarations:
+default - A default value which then makes the variable optional.
+type - This argument specifies what value types are accepted for the variable.
+description - This specifies the input variable's documentation.
+validation - A block to define validation rules, usually in addition to type constraints.
+sensitive - Limits Terraform UI output when the variable is used in configuration.
+nullable - Specify if the variable can be null within the module.
+
+
+I vote D.
+version = ">= 1.2.0, < 2.0.0"
+A version constraint is a string literal containing one or more conditions, which are separated by commas.
+Each condition consists of an operator and a version number.
+Version numbers should be a series of numbers separated by periods (like 1.2.0), optionally with a suffix to indicate a beta release.
+The following operators are valid:
+
+= (or no operator): Allows only one exact version number. Cannot be combined with other conditions.
+
+!=: Excludes an exact version number.
+
+>, >=, <, <=: Comparisons against a specified version, allowing versions for which the comparison is true. "Greater-than" requests newer versions, and "less-than" requests older versions.
+
+~>: Allows only the rightmost version component to increment. For example, to allow new patch releases within a specific minor release, use the full version number: ~> 1.0.4 will allow installation of 1.0.5 and 1.0.10 but not 1.1.0. This is usually called the pessimistic constraint operator.
+
+
+You have declared an input variable called environment in your parent module. What must you do to pass the value to a child module in the configuration?
+A. Add node_count = var.node_count
+B. Declare the variable in a terraform.tfvars file Most Voted
+C. Declare a node_count input variable for child module Most Voted
+D. Nothing, child modules inherit variables of parent module
+ 
+Correct Answer: C 🗳️
+Community vote distribution
+C (81%)
+B (19%)
+
+aws_instance.example.ebs_block_device.*.volume_id
+A. aws_instance.example.ebs_block_device[*].volume_id 
+
+
+
+
+
+What does Terraform use .terraform.lock.hcl file for?  --->  Tracking provider dependencies Most Voted      
+A. Tracking provider dependencies Most Voted      
+B. There is no such file
+C. Preventing Terraform runs from occurring
+D. Storing references to workspaces which are locked
+
+
+
+
+terraform fmt takes followong options
+Options:
+
+-list=false Don't list files whose formatting differs
+(always disabled if using STDIN)
+
+-write=false Don't write to source files
+(always disabled if using STDIN or -check)
+
+-diff Display diffs of formatting changes
+
+-check Check if the input is formatted. Exit status will be 0 if all
+input is properly formatted and non-zero otherwise.
+
+-no-color If specified, output won't contain any color.
+
+-recursive Also process files in subdirectories. By default, only the
+given directory (or current directory) is processed.
+
+
+
+The behavior of terraform apply differs significantly depending on whether you pass it the filename of a previously-saved plan file.
+The terraform apply command executes the actions proposed in a Terraform plan.
+-auto-approve: Skips interactive approval of the plan before applying. This option is ignored when you pass a previously-saved plan file because Terraform considers you passing the plan file as the approval and so will never prompt in that case.
+-compact-warnings: This shows any warning messages in a compact form which includes only the summary messages unless the warnings are accompanied by at least one error and thus the warning text might be useful context for the errors.
+-input=false: Disables all of Terraform’s interactive prompts. Note that this also prevents Terraform from prompting for interactive approval of a plan, so Terraform will conservatively assume that you do not wish to apply the plan, causing the operation to fail. If you wish to run Terraform in a non-interactive context, see Running Terraform in Automation for some different approaches.
+-lock=false: Disables Terraform’s default behavior of attempting to take a read/write lock on the state for the duration of the operation.
+-lock-timeout=DURATION: Unless locking is disabled with -lock=false, instructs Terraform to retry acquiring a lock for a period of time before returning an error. A duration syntax is a number followed by a time unit letter, such as “3s” for three seconds.
+-no-color: Disables terminal formatting sequences in the output. Use this if you are running Terraform in a context where its output will be rendered by a system that cannot interpret terminal formatting.
+-parallelism=n: Limit the number of concurrent operations as Terraform walks the graph. Defaults to 10.
+For configurations using the local backend only, terraform apply also accepts the legacy options -state, -state-out, and -backup.
+
+
+Q27 : The data directory in terraform is used to retain data that must persist from one command to the next, so it’s important to have this variable set consistently throughout all the Terraform workflow commands (starting with terraform init) or else Terraform may be unable to find providers, modules, and other artifacts. Which ENVIRONMENT VARIABLE is used from below to ‘set’ per-working-directory data?
+A. TF_DATA_DIR (Correct)
+B. TF_WORKSPACE  ---> use instead of terraform workspace select workspace_name
+C. TF_DATA
+D. TF_DATA_WORKSPACE
+
+
+
+Q39 : You are working with different Terraform States and you need access to the Terraform state for the organization “whizlabs” and the workspace “prod”. How will you configure the Terraform Datasource?
+A. data “terraform_remote_state” “remote_state” {   backend = “remote”   config = { organization = “whizlabs” workspaces = {   name = “prod” }   } }
+B. data “terraform_remote_state” “remote_state” {   backend = “remote”   organization = “whizlabs”   workspaces = “prod”   } }
+C. data “terraform_remote_state” “remote_state” {   backend = “remote”   organization = “whizlabs.prod”   } }
+D. None of the above
+
+Correct Answer: A
+
+Explanation
+
+A datasource “terraform_remote_state” must be configured. In this configuration, the organization and the workspaces must be set under the config block to access the remote state as a datasource.
+
+Q44 : Which of the following extensions is recognized by Terraform to fetch a module using an URL endpoint.
+A. Zip
+B. Tar.gz
+C. Tar.xz
+D. All of the above
+
+Correct Answer: D
+
+Explanation
+All the extensions are recognized by Terraform:
+zip
+tar.bz2 and tbz2
+tar.gz and tgz
+tar.xz and txz
+
+
+
+Output values are like the return values of a Terraform module, and have several uses:
+* A child module can use outputs to expose a subset of its resource attributes to a parent module.
+* A root module can use outputs to print certain values in the CLI output after running terraform apply.
+* When using remote state, root module outputs can be accessed by other configurations via a terraform_remote_state data source.
+
+
+Excluding Files from Upload with .terraformignore
+Version note: .terraformignore support was added in Terraform 0.12.11.
+
+https://www.itexams.com/exam/Terraform-Associate?
+
+
+naming scheme for provider plugins? -- terraform-provider-<NAME>_vX.Y.Z
+
+syntax for referencing a registry module  -- <NAMESPACE>/<NAME>/<PROVIDER>
+syntax for referencing a private registry module -- <HOSTNAME>/<NAMESPACE>/<NAME>/<PROVIDER>
+
+
+
+157. When you are doing initialization with terraform init, you want to skip backend initialization. What should you do?
+terraform init -backend=false
+
+
+158. When you are doing initialization with terraform init, you want to skip child module installation. What should you do?
+terraform init -get=false
+
+
+When you are doing initialization with terraform init, you want to skip plugin installation. What should you do?
+terraform init -get-plugins=false
+
+
+ You have started writing terraform configuration and you are using some sample configuration as a basis. How do you copy the example configuration into your working directory?
+terraform init -from-module=MODULE-SOURCE
+
+
+What is the flag you should use with the terraform plan to get detailed on the exit codes?
+terraform plan -detailed-exitcode
+
+* 0 = Succeeded with empty diff (no changes)
+* 1 = Error
+* 2 = Succeeded with non-empty diff (changes present)
+
+
+How do you target only specific resources when you run a terraform plan?
+-target=resource - A Resource Address to target. This flag can be used multiple times. See below for more information.
+
+
+How do you update the state prior to checking differences when you run a terraform plan?
+terraform plan -refresh=true
+
+* path.module is the filesystem path of the module where the expression is placed.
+* path.root is the filesystem path of the root module of the configuration.
+* path.cwd is the filesystem path of the current working directory. In normal use of Terraform this is the same as path.root, but some advanced uses of Terraform run it from a directory other than the root module directory, causing these paths to be different.
+
+
+What's the difference between Terraform Cloud and Terraform Enterprise?
+Terraform Enterprise is offered as a private installation. It is designed to suit the needs of organizations including more features (audit logging, SSO/SAML), more customization (private networking), clustering, better performance (job scaling), and higher levels of support. Terraform Cloud is offered as a multi-tenant SaaS platform. It offers a free tier for getting started, and can accommodate both small businesses and large organizations.
+
+
+For larger infrastructures, querying every resource is too slow. Many cloud providers do not provide APIs to query multiple resources at once, and the round trip time for each resource is hundreds of milliseconds. On top of this, cloud providers almost always have API rate limiting so Terraform can only request a certain number of resources in a period of time. Larger users of Terraform make heavy use of the -refresh=false flag as well as the -target flag in order to work around this. In these scenarios, the cached state is treated as the record of truth.
+Although 'Use -refresh=false flag as well as the -target flag with terraform plan in order to work around this.' is a solution, but its not always recommended. Instead of using -target as a means to operate on isolated portions of very large configurations, prefer instead to break large configurations into several smaller configurations that can each be independently applied. Data sources can be used to access information about resources created in other configurations, allowing a complex system architecture to be broken down into more manageable parts that can be updated independently.
+ 
+
+Terraform Cloud is a commercial SaaS product developed by HashiCorp. Many of its features are free for small teams, including remote state storage, remote runs, and VCS connections. We also offer paid plans for larger teams that include additional collaboration and governance features. Each higher paid upgrade plan is a strict superset of any lower plans — for example, the Team & Governance plan includes all of the features of the Team plan.
+
+
+best way to specify a tag of v1.0.0 when referencing a module stored in Git (for example git::https://example.com/vpc.git)?
+module "vpc" {
+  source = "git::https://example.com/vpc.git?ref=v1.2.0"
+}
+How do you specify a module's version when publishing it to the public Terraform Module Registry?
+The release tags in the associated repo
+
+
+"When run locally, Terraform manages each collection of infrastructure with a persistent working directory, which contains a configuration, state data, and variables. Since Terraform CLI uses content from the directory it runs in, you can organize infrastructure resources into meaningful groups by keeping their configurations in separate directories.
+
+
+API and CLI access are managed with API tokens, which can be generated in the Terraform Cloud UI. Each user can generate any number of personal API tokens, which allow access with their own identity and permissions. Organizations and teams can also generate tokens for automating tasks that aren't tied to an individual user.
+
+External Services mode stores the majority of the stateful data used by the instance in an external PostgreSQL database and an external S3-compatible endpoint or Azure blob storage. There is still critical data stored on the instance that must be managed with snapshots. Be sure to check the PostgreSQL Requirements for information that needs to be present for Terraform Enterprise to work. This option is best for users with expertise managing PostgreSQL or users that have access to managed PostgreSQL offerings like AWS RDS.
+
+
+
+backends which support state locking are
+azurerm
+Hashicorp consul
+Tencent Cloud Object Storage (COS)
+etcdv3
+Google Cloud Storage GCS
+HTTP endpoints
+Kubernetes Secret with locking done using a Lease resource
+AliCloud Object Storage OSS with locking via TableStore
+PostgreSQL
+AWS S3 with locking via DynamoDB
+Terraform Enterprise
+
+Backends which do not support state locking are
+artifactory
+etcd
+
+
+
+
+Terraform Enterprise currently supports running under the following operating systems for a Clustered deployment:
+Debian 10 / 11
+Ubuntu 18.04 / 20.04
+Red Hat Enterprise Linux 7.4 - 7.9 / 8.4 - 8.7 (RedHat Linux Requirements)
+CentOS 7.4 - 7.9 / 8.4 (CentOS Requirements)
+Amazon Linux 2.0
+Oracle Linux 7.4 - 7.9 / 8.4
+Clusters currently don’t support other Linux variants.
+
+
+Terraform Cloud currently supports following VCS Provider
+GitHub.com
+GitHub.com (OAuth)
+GitHub Enterprise
+GitLab.com
+GitLab EE and CE
+Bitbucket Cloud
+Bitbucket Server
+Azure DevOps Server
+Azure DevOps Services
+Terraform Cloud supports the following VCS providers:
+- https://www.terraform.io/docs/cloud/vcs/github.html
+- https://www.terraform.io/docs/cloud/vcs/github.html
+- https://www.terraform.io/docs/cloud/vcs/github-enterprise.html
+- https://www.terraform.io/docs/cloud/vcs/gitlab-com.html
+- https://www.terraform.io/docs/cloud/vcs/gitlab-eece.html
+- https://www.terraform.io/docs/cloud/vcs/bitbucket-cloud.html
+- https://www.terraform.io/docs/cloud/vcs/bitbucket-server.html
+- https://www.terraform.io/docs/cloud/vcs/azure-devops-server.html
+- https://www.terraform.io/docs/cloud/vcs/azure-devops-services.html 
+https://www.terraform.io/docs/cloud/vcs/index.html#supported-vcs-providers
+
+
+
+A Terraform Enterprise install that is provisioned on a network that does not have Internet access is generally known as an air-gapped install. These types of installs require you to pull updates, providers, etc. from external sources vs. being able to download them directly.
+
+
+
+The terraform init command is used to initialize a working directory containing Terraform configuration files. This is the first command that should be run after writing a new Terraform configuration or cloning an existing one from version control. It is safe to run this command multiple times.
+This command is always safe to run multiple times, to bring the working directory up to date with changes in the configuration. Though subsequent runs may give errors, this command will never delete your existing
+
+configuration or state. terraform init command does -
+* Copy a Source Module
+* Backend Initialization
+* Child Module Installation
+* Plugin Installation
+
+
+
+
+Terraform Enterprise runs on Linux instances, and you must prepare a running Linux instance for Terraform Enterprise before running the installer. You will start and manage this instance like any other server.
+Terraform Enterprise currently supports running under the following operating systems: Standalone deployment:
+Debian 10 / 11
+Ubuntu 18.04 / 20.04
+Red Hat Enterprise Linux 7.4 - 7.9 / 8.4 - 8.7 (RedHat Linux Requirements)
+CentOS 7.4 - 7.9 / 8.4 (CentOS Requirements)
+Amazon Linux 2.0
+Oracle Linux 7.4 - 7.9 / 8.4
+
+
+
+
+The Vault provider allows Terraform to read from, write to, and configure Hashicorp Vault. Interacting with Vault from Terraform causes any secrets that you read and write to be persisted in both Terraform's state file and in any generated plan files. For any Terraform module that reads or writes Vault secrets, these files should be treated as sensitive and protected accordingly.
+
+
+type string can accept both 15 and "15". if type is number then it will accept only 15.
